@@ -23,5 +23,5 @@ for level in levels:
     origfilename = stmt2origfile(stmt, origfilenames)
     nngmap[stmt] = origfilename2worldlevel(origfilename)
 
-with open('nngmap.json', 'w') as nngmap_fp:
-    json.dump(nngmap, nngmap_fp)
+with open('nngmap.json', 'w', encoding='utf8') as nngmap_fp:
+    json.dump(nngmap, nngmap_fp, ensure_ascii=False)
