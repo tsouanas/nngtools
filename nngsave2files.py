@@ -63,5 +63,6 @@ def levelextract(level, human=True):
 #### main loop
 
 for level in levels:
-    levelextract(level)
+    if level.get('isSolved'):
+        levelextract(level)
 
