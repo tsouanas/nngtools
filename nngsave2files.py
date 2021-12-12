@@ -35,13 +35,13 @@ with open(nngsavefilename, 'r') as nngsave_fp:
 
 def w2wdir(w, human=True):
     if human:
-        return '{}-{}'.format(w,worldnames[w])
+        return '{}-{}'.format(w, worldnames[w])
     else:
         return 'world{}'.format(w)
 
 def l2lfile(w, l, human=True):
     if human:
-        return '{}-{}.lean'.format(w,l)
+        return '{}-{}.lean'.format(w, l)
     else:
         return 'level{}.lean'.format(l)
 
