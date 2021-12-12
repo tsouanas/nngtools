@@ -11,7 +11,7 @@
 
 The following is taken from [this message][leanprover-zulip-saveload] by [mpedramfar][mpedramfar].
 I have altered the savegame javascript code to:
-(i) prettyprint the json file instead of dumping it as a single line, and also the filename chosen;
+(i) prettyprint the json file instead of dumping it as a single line;
 (ii) use the name `nngsave.json` for the created file.
 
 Create the bookmarks:
