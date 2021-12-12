@@ -2,6 +2,8 @@ import json
 import sys
 import pathlib
 
+NNG_URL = 'https://www.ma.imperial.ac.uk/~buzzard/xena/natural_number_game/'
+
 # command-line args
 try:
     nngsavefilename = sys.argv[1]
@@ -45,7 +47,7 @@ def l2lfile(w, l, human=True):
     else:
         return 'level{}.lean'.format(l)
 
-def levelextract(level, human=True):
+def levelextract(level, context=False, add_url=True, human=True):
     # get: statement, world, level, text
     s = level['lean']
     w = nngmap[s]['world']
@@ -58,7 +60,14 @@ def levelextract(level, human=True):
     pathlib.Path('{}'.format(wdir)).mkdir(parents=True, exist_ok=True)
     # write level file in world dir
     with open('{}/{}'.format(wdir,lfile), 'w') as fp:
+        if add_url:
+            fp.write('-- {}?world={}&level={}\n\n'.format(NNG_URL, w, l))
+        if context:
+            fp.write(s)
+            fp.write('begin\n')
         fp.write(t)
+        if context:
+            fp.write('end\n')
 
 #### main loop
 
